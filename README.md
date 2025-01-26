@@ -114,7 +114,7 @@ Please create an account if you don't already have one.
 
 
 
-
+* # Note: admin is not responsible for misuse or use of the code, all risks are borne by each individual.
 
 
 
