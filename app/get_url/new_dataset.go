@@ -26,13 +26,12 @@ var Body = []byte(`{
     "enhanceUserSearchWithFacebookPage": false,
     "isUserReelFeedURL": false,
     "isUserTaggedFeedURL": false,
-    "onlyPostsNewerThan": "1 month",
-    "resultsLimit": 100,
+    "onlyPostsNewerThan": "1 week",
+    "resultsLimit": 50,
     "resultsType": "stories",
     "searchLimit": 1,
     "searchType": "hashtag"
 }`)
-
 
 func NewDatasetToAPIFY() (dataset_id string) {
 	utils := app.Utils

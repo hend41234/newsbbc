@@ -7,8 +7,8 @@ import (
 	"log"
 	editvideo "newsbbc/app/edit_video"
 	geturl "newsbbc/app/get_url"
-	"time"
 	"os"
+	"time"
 )
 
 type NewVideoModels struct {
@@ -42,7 +42,7 @@ func DownloadAllVideos() {
 	oldUrl := OpenURL()
 	for _, list := range oldUrl {
 		fileName, x := Downloader(list.VideoUrl)
-		if !x{
+		if !x {
 			continue
 		}
 		tempData := NewVideoModels{
@@ -73,23 +73,24 @@ func GetContent() (file_path string, caption string, x bool) {
 	// file_path = content[0].Path
 	workDir, _ := os.Getwd()
 	file_path = workDir + "/videos/upload_video.mp4"
-	if len(content) == 0{
+	log.Println(len(content))
+	if len(content) == 0 {
 		log.Println("content is empty, we must download content first, wait for it.")
 		geturl.GetDatasetFromAPIFY()
 		DownloadAllVideos()
 		content = OpenContent()
 	}
-	videoToEdit := fmt.Sprintf("%v/%v",workDir,content[0].Path)
+	videoToEdit := fmt.Sprintf("%v/%v", workDir, content[0].Path)
 	caption = content[0].Caption
 	editvideo.EditVideo(videoToEdit, file_path)
-	time.Sleep(time.Duration(60) * time.Second)
+	time.Sleep(time.Duration(20) * time.Second)
 	defer os.Remove(videoToEdit)
 	remove := content.RemoveIndex()
 	remove.WriteJSON()
 	if len(remove) == 0 {
 		x = false
-	} else{
-		x=true
+	} else {
+		x = true
 	}
 	return
 }
