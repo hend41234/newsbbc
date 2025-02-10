@@ -50,6 +50,7 @@ Please create an account if you don't already have one.
 
 
 # Instructions for Use :
+# !! Sorry, Its not relevan for now
 
 * ### `uploadreels.RunUploadsReels()` can be used to upload videos to all your pages, each video is only valid for 1 page,
     if you want 1 video for all pages you can change it in the section:
