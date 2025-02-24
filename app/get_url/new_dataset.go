@@ -1,4 +1,4 @@
-package geturl
+qpackage geturl
 
 import (
 	"bytes"
